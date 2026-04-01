@@ -26,6 +26,8 @@ public class Guichet implements Runnable {
 
                 try {
                     client.executerOperation();
+                    // 2 secondes par client
+                    Thread.sleep(2000);
                 } catch (RuntimeException e) {
                     System.err.println("Erreur au guichet " + id + " avec le client " + client.getId() + " : " + e.getMessage());
                 }
