@@ -47,7 +47,7 @@ public class TestUs2 {
             }
 
             // le refus si pleine
-            if (file.ajouterClient(cli2)) {
+            if (file.ajouterClient(cli4)) {
                 System.out.println("Client 4 ajouté");
             } else {
                 System.out.println("Client 4 refusé (file pleine)");

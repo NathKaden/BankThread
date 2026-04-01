@@ -1,6 +1,7 @@
 package banque;
 
 import banque.model.Compte;
+import banque.monitoring.Historique;
 import banque.service.Virement;
 
 public class TestUs4 {
@@ -10,14 +11,18 @@ public class TestUs4 {
         Compte clientJuliano = new Compte(1, 100);
         Compte clientNadia = new Compte(2, 100);
 
+        //historique partagé
+        Historique historique = new Historique();
+
         // Virement juliano vers nadia
+        // ajout de l'historique pour l'us8
         Thread t1 = new Thread(() -> {
-            Virement.transferer(clientJuliano, clientNadia, 50);
+            Virement.transferer(clientJuliano, clientNadia, 50,historique);
         }, "Juliano");
 
         //l'inverse
         Thread t2 = new Thread(() -> {
-            Virement.transferer(clientNadia, clientJuliano, 30);
+            Virement.transferer(clientNadia, clientJuliano, 30,historique);
         }, "Nadia");
 
         t1.start();
