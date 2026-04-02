@@ -22,36 +22,11 @@ public class TestUs2 {
         //Thread qui ajoute les clients
         Thread arriveeClients = new Thread(() -> {
 
-//            ajouterClient(file, cli1);
-//            ajouterClient(file, cli2);
-//            ajouterClient(file, cli3);
-//            // le refus si pleine
-//            ajouterClient(file, cli4);
-
-            if (file.ajouterClient(cli1)) {
-                System.out.println("Client 1 ajouté");
-            } else {
-                System.out.println("Client 1 refusé (file pleine)");
-            }
-
-            if (file.ajouterClient(cli2)) {
-                System.out.println("Client 2 ajouté");
-            } else {
-                System.out.println("Client 2 refusé (file pleine)");
-            }
-
-            if (file.ajouterClient(cli3)) {
-                System.out.println("Client 3 ajouté");
-            } else {
-                System.out.println("Client 3 refusé (file pleine)");
-            }
-
+            ajouterClient(file, cli1);
+            ajouterClient(file, cli2);
+            ajouterClient(file, cli3);
             // le refus si pleine
-            if (file.ajouterClient(cli4)) {
-                System.out.println("Client 4 ajouté");
-            } else {
-                System.out.println("Client 4 refusé (file pleine)");
-            }
+            ajouterClient(file, cli4);
 
         });
 
@@ -98,11 +73,11 @@ public class TestUs2 {
         System.out.println("Test terminé. Solde final = " + compte.getSolde() + " €");
     }
 
-//    private static void ajouterClient(FileClients file, Client client) {
-//        if (file.ajouterClient(client)) {
-//            System.out.println("Client " + client.getId() + " ajouté");
-//        } else {
-//            System.out.println("Client " + client.getId() + " refusé (file pleine)");
-//        }
-//    }
+    private static void ajouterClient(FileClients file, Client client) {
+        if (file.ajouterClient(client)) {
+            System.out.println("Client " + client.getId() + " ajouté");
+        } else {
+            System.out.println("Client " + client.getId() + " refusé (file pleine)");
+        }
+    }
 }
