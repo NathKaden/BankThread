@@ -4,6 +4,7 @@ import banque.queue.FileClients;
 import banque.model.Client;
 
 public class Guichet implements Runnable {
+
     private final int id;
     private final FileClients fileClients;
 
@@ -14,21 +15,25 @@ public class Guichet implements Runnable {
 
     @Override
     public void run() {
+
         System.out.println("Le guichet " + id + " est ouvert.");
 
         while (!Thread.currentThread().isInterrupted()) {
             try {
                 Client client = fileClients.prendreClient();
+
                 System.out.println("Le guichet " + id + " sert le client " + client.getId());
 
                 try {
                     client.executerOperation();
-                } catch (Exception e) {
-                    System.err.println("Erreur : guichet " + id + " avec le client id " + client.getId() + " : " + e.getMessage());
+                    // 2 secondes par client
+                    Thread.sleep(2000);
+                } catch (RuntimeException e) {
+                    System.err.println("Erreur au guichet " + id + " avec le client " + client.getId() + " : " + e.getMessage());
                 }
 
             } catch (InterruptedException e) {
-                System.out.println("Le Guichet " + id + " ferme ses portes.");
+                System.out.println("Le guichet " + id + " ferme ses portes.");
                 Thread.currentThread().interrupt();
             }
         }

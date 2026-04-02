@@ -5,21 +5,24 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
 public class FileClients {
-    private final BlockingQueue<Client> queue;
 
-    public FileClients(int capaciteMax) {
-        this.queue = new LinkedBlockingQueue<>(capaciteMax);
+    private final BlockingQueue<Client> file;
+
+    public FileClients(int capacite) {
+        this.file = new LinkedBlockingQueue<>(capacite);
     }
 
     public boolean ajouterClient(Client client) {
-        return queue.offer(client);
+        //refuse si pleine
+        return file.offer(client);
     }
 
     public Client prendreClient() throws InterruptedException {
-        return queue.take();
+        //bloque si vide
+        return file.take();
     }
 
-    public int getTaille() {
-        return queue.size();
+    public int taille() {
+        return file.size();
     }
 }
