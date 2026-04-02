@@ -15,7 +15,6 @@ public class Compte {
     }
 
     public synchronized void deposer(double montant) {
-        solde += montant;
         // Vérification du montant de dépôt
         if (montant <= 0) {
             throw new IllegalArgumentException("Montant de dépôt invalide : " + montant + " € . Le montant doit être supérieur a 0.");
