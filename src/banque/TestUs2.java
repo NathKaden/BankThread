@@ -8,29 +8,22 @@ public class TestUs2 {
 
     public static void main(String[] args) {
 
-        // File FIFO encapsulée
         FileClients file = new FileClients(3);
-
         Compte compte = new Compte(123456, 100);
 
-        // Création des clients
-        Client cli1 = new Client(1, () -> compte.retirer(30));
-        Client cli2 = new Client(2, () -> compte.retirer(30));
+        // Ajout d'un Runnable comme opération pour chaque client
+        Client cli1 = new Client(1, () -> compte.deposer(30));
+        Client cli2 = new Client(2, () -> compte.deposer(30));
         Client cli3 = new Client(3, () -> compte.retirer(30));
-        Client cli4 = new Client(4, () -> compte.retirer(30)); // peut être refusé
+        Client cli4 = new Client(4, () -> compte.deposer(30)); // peut être refusé
 
-        //Thread qui ajoute les clients
         Thread arriveeClients = new Thread(() -> {
-
             ajouterClient(file, cli1);
             ajouterClient(file, cli2);
             ajouterClient(file, cli3);
-            // le refus si pleine
             ajouterClient(file, cli4);
-
         });
 
-        // les guichets
         Thread guichet1 = new Thread(() -> {
             while (true) {
                 try {

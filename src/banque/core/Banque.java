@@ -32,7 +32,7 @@ public class Banque {
         if (!accepte) {
             System.err.println("File pleine ! Client " + client.getId() + " refusé à l'entrée.");
         } else {
-            System.out.println("Client " + client.getId() + " est entré dans la file d'attente (Taille actuelle : " + fileClients.getTaille() + ").");
+            System.out.println("Client " + client.getId() + " est entré dans la file d'attente (Taille actuelle : " + fileClients.taille() + ").");
         }
     }
 

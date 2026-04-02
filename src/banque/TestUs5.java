@@ -36,8 +36,10 @@ public class TestUs5 {
 
             Client client = new Client(id, () -> {
                 if (id % 2 == 0) {
+                    System.out.println("Client " + id + " fait un dépôt");
                     c1.deposer(50);
                 } else {
+                    System.out.println("Client " + id + " fait un retrait");
                     c2.retirer(30);
                 }
             });

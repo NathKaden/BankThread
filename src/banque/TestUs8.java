@@ -31,7 +31,13 @@ public class TestUs8 {
             int id = i;
 
             Client client = new Client(id, () -> {
-                dab.retirer(compte, 50);
+                if (id % 2 == 0) {
+                    System.out.println("Client " + id + " fait un dépôt");
+                    compte.deposer(50);
+                } else {
+                    System.out.println("Client " + id + " fait un retrait");
+                    compte.retirer(30);
+                }
             });
 
             file.ajouterClient(client);
