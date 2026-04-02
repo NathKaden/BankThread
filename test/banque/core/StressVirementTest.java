@@ -19,8 +19,8 @@ public class StressVirementTest {
      */
     @Test
     void stressVirement_pasDeDdeadlock() throws InterruptedException {
-        Compte compteA = new Compte(1, 100_000);
-        Compte compteB = new Compte(2, 100_000);
+        Compte compteA = new Compte(1, 100_000, null);
+        Compte compteB = new Compte(2, 100_000, null);
         Historique historique = new Historique();
         int NB_THREADS = 50;
 
@@ -63,7 +63,7 @@ public class StressVirementTest {
         double SOLDE_INITIAL = 10_000;
 
         Compte[] comptes = new Compte[NB_COMPTES];
-        for (int i = 0; i < NB_COMPTES; i++) comptes[i] = new Compte(i, SOLDE_INITIAL);
+        for (int i = 0; i < NB_COMPTES; i++) comptes[i] = new Compte(i, SOLDE_INITIAL, null);
 
         double totalAvant = 0;
         for (Compte c : comptes) totalAvant += c.getSolde();

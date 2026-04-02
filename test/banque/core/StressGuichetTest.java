@@ -32,7 +32,7 @@ public class StressGuichetTest {
         assertTrue(done.await(30, TimeUnit.SECONDS), "Tous les clients n'ont pas été servis !");
         pool.shutdownNow();
 
-        assertEquals(0, file.taille(), "Des clients sont restés dans la file !");
+        assertEquals(0, file.getTaille(), "Des clients sont restés dans la file !");
     }
 
     @Test

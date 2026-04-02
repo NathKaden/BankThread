@@ -44,7 +44,7 @@ public class StressFileClientsTest {
         pool.shutdown();
 
         assertEquals(NB_THREADS, acceptes.get() + refuses.get());
-        assertTrue(file.taille() <= CAPACITE);
+        assertTrue(file.getTaille() <= CAPACITE);
         System.out.println("Acceptés : " + acceptes.get() + " | Refusés : " + refuses.get());
     }
 
