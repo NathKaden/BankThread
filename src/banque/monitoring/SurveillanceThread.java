@@ -38,7 +38,7 @@ public class SurveillanceThread {
                     System.out.println("Compte n°" + c.getNumero() + "  " + c.getSolde() + " €");
                 }
 
-                System.out.println("File clients : " + fileClients.taille());
+                System.out.println("File clients : " + fileClients.getTaille());
 
                 System.out.println("==========");
 

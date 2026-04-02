@@ -8,8 +8,12 @@ public class TestUs4 {
 
     public static void main(String[] args) {
 
-        Compte clientJuliano = new Compte(1, 100);
-        Compte clientNadia = new Compte(2, 100);
+        Compte clientJuliano = new Compte(1, 100, null);
+        Compte clientNadia = new Compte(2, 100, null);
+
+        //la somme totale du debut
+        double sommeInitiale = clientJuliano.getSolde() + clientNadia.getSolde();
+        System.out.println("Somme initiale = " + sommeInitiale);
 
         //historique partagé
         Historique historique = new Historique();
@@ -33,6 +37,19 @@ public class TestUs4 {
             t2.join();
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
+        }
+
+        double sommeFinale = clientJuliano.getSolde() + clientNadia.getSolde();
+
+        System.out.println("\nRESULTATS");
+        System.out.println("Somme initiale est de " + sommeInitiale);
+        System.out.println("Somme finale est de " + sommeFinale);
+
+        //verification de l'invariation
+        if (sommeInitiale == sommeFinale) {
+            System.out.println("INVARIANT OK");
+        } else {
+            System.out.println("INVARIANT KO");
         }
 
         System.out.println("Solde final du client Juliano est de " + clientJuliano.getSolde() + "€");

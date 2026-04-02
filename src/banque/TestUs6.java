@@ -10,8 +10,8 @@ public class TestUs6 {
 
     public static void main(String[] args) {
 
-        Compte clientJuliano = new Compte(1, 100);
-        Compte clientJulien = new Compte(2, 50);
+        Compte clientJuliano = new Compte(1, 100, null);
+        Compte clientJulien = new Compte(2, 50, null);
 
         List<Compte> comptes = Arrays.asList(clientJuliano, clientJulien);
 

@@ -7,11 +7,12 @@ public class Compte {
     private final int numero;
     private double solde;
     //ajout d'un historique partagée
-    private static Historique historique;
+    private final Historique historique;
 
-    public Compte(int numero, double soldeInitial) {
+    public Compte(int numero, double soldeInitial, Historique historique) {
         this.numero = numero;
         this.solde = soldeInitial;
+        this.historique = historique;
     }
 
     public synchronized void deposer(double montant) {
@@ -54,8 +55,4 @@ public class Compte {
     public synchronized double getSolde() { return solde; }
 
     public synchronized double getNumero() { return numero; }
-
-    public static void setHistorique(Historique h) {
-        historique = h;
-    }
 }

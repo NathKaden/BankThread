@@ -17,8 +17,8 @@ public class TestUs5 {
 
         FileClients file = new FileClients(10);
 
-        Compte c1 = new Compte(1, 100);
-        Compte c2 = new Compte(2, 200);
+        Compte c1 = new Compte(1, 100, null);
+        Compte c2 = new Compte(2, 200, null);
 
         List<Compte> comptes = Arrays.asList(c1, c2);
 

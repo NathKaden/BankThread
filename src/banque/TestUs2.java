@@ -11,7 +11,7 @@ public class TestUs2 {
         // File FIFO encapsulée
         FileClients file = new FileClients(3);
 
-        Compte compte = new Compte(123456, 100);
+        Compte compte = new Compte(123456, 100, null);
 
         // Création des clients
         Client cli1 = new Client(1, () -> compte.retirer(30));
