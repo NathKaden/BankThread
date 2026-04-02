@@ -15,7 +15,7 @@ public class TestUs3 {
         // File
         FileClients file = new FileClients(5);
 
-        Compte compte = new Compte(123456, 200);
+        Compte compte = new Compte(123456, 200, null);
 
         //Pool de 3 guichets
         int nbGuichets = 3;

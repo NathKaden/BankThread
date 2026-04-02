@@ -29,7 +29,7 @@ public class Main {
         List<Compte> comptes = new ArrayList<>();
 
         for (int i = 0; i < NB_COMPTES; i++) {
-            comptes.add(new Compte(i, 1000));
+            comptes.add(new Compte(i, 1000, null));
         }
 
         //la somme totale du debut
