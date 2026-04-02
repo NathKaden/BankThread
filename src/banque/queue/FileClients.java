@@ -22,7 +22,7 @@ public class FileClients {
         return file.take();
     }
 
-    public int taille() {
+    public int getTaille() {
         return file.size();
     }
 }
