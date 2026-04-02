@@ -15,7 +15,7 @@ public class TestUs7 {
 
         FileClients file = new FileClients(10);
 
-        Compte compte = new Compte(1, 500);
+        Compte compte = new Compte(1, 500, null);
 
         // 2 distributeur de disponible
         DAB dab = new DAB(2);

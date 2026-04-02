@@ -8,8 +8,8 @@ public class TestUs4 {
 
     public static void main(String[] args) {
 
-        Compte clientJuliano = new Compte(1, 100);
-        Compte clientNadia = new Compte(2, 100);
+        Compte clientJuliano = new Compte(1, 100, null);
+        Compte clientNadia = new Compte(2, 100, null);
 
         //historique partagé
         Historique historique = new Historique();

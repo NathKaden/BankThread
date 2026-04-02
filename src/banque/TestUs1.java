@@ -4,7 +4,7 @@ import banque.model.Compte;
 
 public class TestUs1 {
     public static void main(String[] args) {
-        Compte compteBancaire  = new Compte(123456, 100);
+        Compte compteBancaire  = new Compte(123456, 100, null);
 
         // Client 1 retire 70€
         Thread client1 = new Thread(() -> {
@@ -23,7 +23,7 @@ public class TestUs1 {
 
         //Client 4 essai dépose 0€
         Thread client4 = new Thread(() -> {
-            compteBancaire.deposer(0);
+            compteBancaire.deposer(10);
         }, "Client4");
 
         client1.start();
